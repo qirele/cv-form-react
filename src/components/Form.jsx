@@ -50,6 +50,45 @@ export default function Form({ onSubmit, onInputChange, formData }) {
             onChange={onInputChange} />
         </div>
       </Section>
+      <Section title="Practical Experience">
+        <div>
+          <label htmlFor="workCompanyName">Company name</label>
+          <input type="text" id="workCompanyName"
+            value={formData.workCompanyName}
+            onChange={onInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="workPositionTitle">Position title</label>
+          <input type="text" id="workPositionTitle"
+            value={formData.workPositionTitle}
+            onChange={onInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="workResponsibilities">Work responsibilities</label>
+
+          {/* todo: add a button to add responsibilities to array*/}
+          <input type="text" id="workResponsibilities"
+            value={formData.workResponsibilities}
+            onChange={onInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="workDateFrom">Date from</label>
+          <input type="text" id="workDateFrom"
+            value={formData.workDateFrom}
+            onChange={onInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="workDateUntil">Date until</label>
+          <input type="text" id="workDateUntil"
+            value={formData.workDateUntil}
+            onChange={onInputChange}
+          />
+        </div>
+      </Section>
       <button className="btn" type="submit">Submit</button>
     </form>
   )

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Section from './components/Section.jsx';
 import Form from './components/Form.jsx';
-import './App.css'
+import Display from './components/Display.jsx';
+import './styles/App.css';
 
 function App() {
   const [status, setStatus] = useState("editing"); // editing, looking(looking at data after submit)
@@ -13,6 +13,11 @@ function App() {
     school: "",
     studyTitle: "",
     studyDate: "",
+    workCompanyName: "",
+    workPositionTitle: "",
+    workResponsibilities: "",
+    workDateFrom: "",
+    workDateUntil: "",
   });
 
   function handleFormSubmit(e) {
@@ -38,10 +43,7 @@ function App() {
       }
 
       {status === "looking" &&
-        <>
-          <h1>Data submitted</h1>
-          <button className="btn" onClick={handleEditClick}>Edit</button>
-        </>
+        <Display formData={formData} handleEditClick={handleEditClick} />
       }
     </>
   )
