@@ -4,3 +4,8 @@
   color: #1f1f1f;
   padding-bottom: 1.5rem;
 }
+
+.error {
+  color: red;
+  text-align: center;
+}

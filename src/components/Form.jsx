@@ -2,7 +2,7 @@ import Section from "./Section"
 import InputContainer from "./InputContainer";
 import styles from '../styles/Form.module.css';
 
-export default function Form({ onSubmit, onInputChange, formData }) {
+export default function Form({ onSubmit, onInputChange, formData, shouldSubmit }) {
 
   return (
     <div className={styles.formWrapper}>
@@ -14,6 +14,7 @@ export default function Form({ onSubmit, onInputChange, formData }) {
             id="firstName"
             formData={formData}
             onChange={onInputChange}
+            required={true}
           />
           <InputContainer
             type="text"
@@ -21,6 +22,7 @@ export default function Form({ onSubmit, onInputChange, formData }) {
             id="lastName"
             formData={formData}
             onChange={onInputChange}
+            required={true}
           />
           <InputContainer
             type="email"
@@ -28,6 +30,7 @@ export default function Form({ onSubmit, onInputChange, formData }) {
             id="email"
             formData={formData}
             onChange={onInputChange}
+            required={true}
           />
           <InputContainer
             type="tel"
@@ -35,6 +38,7 @@ export default function Form({ onSubmit, onInputChange, formData }) {
             id="phone"
             formData={formData}
             onChange={onInputChange}
+            required={true}
           />
         </Section>
         <Section title="Educational Experience">
@@ -99,7 +103,10 @@ export default function Form({ onSubmit, onInputChange, formData }) {
           />
         </Section>
         <div>
-          <button className="btn" type="submit">Submit</button>
+          <button className={"btn " + (!shouldSubmit ? styles.error : "")} type="submit">Submit</button>
+          {!shouldSubmit &&
+            <p className={styles.error}>Sorry, you gotta provide required fields</p>
+          }
         </div>
       </form>
 

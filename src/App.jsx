@@ -4,7 +4,8 @@ import Display from './components/Display.jsx';
 import './styles/App.css';
 
 function App() {
-  const [status, setStatus] = useState("editing"); // editing, looking(looking at data after submit)
+  // editing, looking(looking at data after submit)
+  const [status, setStatus] = useState("editing");
   const [formData, setFormData] = useState({
     firstName: "John",
     lastName: "Barlow",
@@ -20,8 +21,14 @@ function App() {
     workDateUntil: `${new Date(Date.now()).toISOString().split("T")[0]}`,
   });
 
+  const requiredEmpty = formData.firstName === "" || formData.lastName === ""
+    || formData.email === "" || formData.phone === "";
+
   function handleFormSubmit(e) {
     e.preventDefault();
+    if (requiredEmpty) {
+      return;
+    }
     setStatus("looking");
   }
 
@@ -39,6 +46,7 @@ function App() {
         <Form onSubmit={handleFormSubmit}
           onInputChange={handleInputChange}
           formData={formData}
+          shouldSubmit={!requiredEmpty}
         />
       }
 

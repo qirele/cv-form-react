@@ -2,5 +2,25 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-  margin-block: 1rem;
+  margin-block: 1.5rem;
+  position: relative;
+}
+
+.error {
+  color: hsl(0, 100%, 36%);
+}
+
+input.error {
+  appearance: none;
+  border: none;
+  outline: 2px solid hsl(0, 100%, 53%);
+}
+
+.required {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: hsl(360, 0%, 13%);
+  color: hsl(360, 8%, 100%);
+  transform: translateY(-100%);
 }
