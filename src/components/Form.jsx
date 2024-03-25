@@ -1,95 +1,108 @@
 import Section from "./Section"
+import InputContainer from "./InputContainer";
+import styles from '../styles/Form.module.css';
 
 export default function Form({ onSubmit, onInputChange, formData }) {
 
   return (
-    <form onSubmit={onSubmit}>
-      <Section title="General Information">
-        <div className="input-wrapper">
-          <label htmlFor="firstName">First Name</label>
-          <input type="text" id="firstName"
-            value={formData.firstName}
-            onChange={onInputChange} />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="lastName">Last Name</label>
-          <input type="text" id="lastName"
-            value={formData.lastName}
-            onChange={onInputChange} />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email"
-            value={formData.email}
-            onChange={onInputChange} />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="phone">Phone number</label>
-          <input type="tel" id="phone"
-            value={formData.phone}
-            onChange={onInputChange} />
-        </div>
-      </Section>
-      <Section title="Educational Experience">
-        <div className="input-wrapper">
-          <label htmlFor="school">School name</label>
-          <input type="text" id="school"
-            value={formData.school}
-            onChange={onInputChange} />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="studyTitle">Title of study</label>
-          <input type="text" id="studyTitle"
-            value={formData.studyTitle}
-            onChange={onInputChange} />
-        </div>
-        <div className="input-wrapper">
-          <label htmlFor="studyDate">Date of study</label>
-          <input type="date" id="studyDate"
-            value={formData.studyDate}
-            onChange={onInputChange} />
-        </div>
-      </Section>
-      <Section title="Practical Experience">
-        <div>
-          <label htmlFor="workCompanyName">Company name</label>
-          <input type="text" id="workCompanyName"
-            value={formData.workCompanyName}
+    <div className={styles.formWrapper}>
+      <form onSubmit={onSubmit} className="container">
+        <Section title="General Information">
+          <InputContainer
+            type="text"
+            text="First Name"
+            id="firstName"
+            formData={formData}
             onChange={onInputChange}
           />
-        </div>
-        <div>
-          <label htmlFor="workPositionTitle">Position title</label>
-          <input type="text" id="workPositionTitle"
-            value={formData.workPositionTitle}
+          <InputContainer
+            type="text"
+            text="Last Name"
+            id="lastName"
+            formData={formData}
             onChange={onInputChange}
           />
-        </div>
-        <div>
-          <label htmlFor="workResponsibilities">Work responsibilities</label>
-
+          <InputContainer
+            type="email"
+            text="Email"
+            id="email"
+            formData={formData}
+            onChange={onInputChange}
+          />
+          <InputContainer
+            type="tel"
+            text="Phone number"
+            id="phone"
+            formData={formData}
+            onChange={onInputChange}
+          />
+        </Section>
+        <Section title="Educational Experience">
+          <InputContainer
+            type="text"
+            text="School name"
+            id="school"
+            formData={formData}
+            onChange={onInputChange}
+          />
+          <InputContainer
+            type="text"
+            text="Title of study"
+            id="studyTitle"
+            formData={formData}
+            onChange={onInputChange}
+          />
+          <InputContainer
+            type="date"
+            text="Date of study"
+            id="studyDate"
+            formData={formData}
+            onChange={onInputChange}
+          />
+        </Section>
+        <Section title="Practical Experience">
+          <InputContainer
+            type="text"
+            text="Company name"
+            id="workCompanyName"
+            formData={formData}
+            onChange={onInputChange}
+          />
+          <InputContainer
+            type="text"
+            text="Position title"
+            id="workPositionTitle"
+            formData={formData}
+            onChange={onInputChange}
+          />
           {/* todo: add a button to add responsibilities to array*/}
-          <input type="text" id="workResponsibilities"
-            value={formData.workResponsibilities}
+          <InputContainer
+            type="text"
+            text="Work responsibilities"
+            id="workResponsibilities"
+            formData={formData}
             onChange={onInputChange}
           />
-        </div>
+          <InputContainer
+            type="date"
+            text="Date from"
+            id="workDateFrom"
+            formData={formData}
+            onChange={onInputChange}
+          />
+          <InputContainer
+            type="date"
+            text="Date until"
+            id="workDateUntil"
+            formData={formData}
+            onChange={onInputChange}
+          />
+        </Section>
         <div>
-          <label htmlFor="workDateFrom">Date from</label>
-          <input type="text" id="workDateFrom"
-            value={formData.workDateFrom}
-            onChange={onInputChange}
-          />
+          <button className="btn" type="submit">Submit</button>
         </div>
-        <div>
-          <label htmlFor="workDateUntil">Date until</label>
-          <input type="text" id="workDateUntil"
-            value={formData.workDateUntil}
-            onChange={onInputChange}
-          />
-        </div>
-      </Section>
-      <button className="btn" type="submit">Submit</button>
-    </form>
+      </form>
+
+    </div>
   )
 }

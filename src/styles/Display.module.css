@@ -1,0 +1,5 @@
+.displayWrapper {
+  min-height: 100vh;
+  background: hsl(156, 100%, 50%);
+  color: hsl(156, 100%, 13%);
+}

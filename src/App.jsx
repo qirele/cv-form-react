@@ -6,18 +6,18 @@ import './styles/App.css';
 function App() {
   const [status, setStatus] = useState("editing"); // editing, looking(looking at data after submit)
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    school: "",
-    studyTitle: "",
-    studyDate: "",
-    workCompanyName: "",
-    workPositionTitle: "",
-    workResponsibilities: "",
-    workDateFrom: "",
-    workDateUntil: "",
+    firstName: "John",
+    lastName: "Barlow",
+    email: "johnboarlow@gmail.com",
+    phone: "502-213-1337",
+    school: "Technical school",
+    studyTitle: "Programister",
+    studyDate: `${new Date(Date.now()).toISOString().split("T")[0]}`,
+    workCompanyName: "The business company enterprises esquire",
+    workPositionTitle: "Presser of keys",
+    workResponsibilities: "Punching, destroying the keyboard",
+    workDateFrom: `${new Date(Date.now()).toISOString().split("T")[0]}`,
+    workDateUntil: `${new Date(Date.now()).toISOString().split("T")[0]}`,
   });
 
   function handleFormSubmit(e) {
