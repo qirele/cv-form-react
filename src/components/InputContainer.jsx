@@ -2,7 +2,8 @@ import styles from '../styles/InputContainer.module.css';
 
 export default function InputContainer({
   type, text, id, onChange, formData, required }) {
-  const isEmpty = formData[id] === "";
+  const isEmpty = formData[id] === "" && required;
+  const isEmailAndWrong = type === "email" && (!formData[id].match(/^\S+@\S+\.\S+$/));
 
   return (
     <div className={styles.inputWrapper}>
@@ -15,6 +16,9 @@ export default function InputContainer({
       />
       {isEmpty &&
         <p className={styles.error}>I think you haven't typed anything yet</p>
+      }
+      {isEmailAndWrong &&
+        <p className={styles.error}>Email needs to be correct</p>
       }
 
       {required &&

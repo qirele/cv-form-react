@@ -24,9 +24,11 @@ function App() {
   const requiredEmpty = formData.firstName === "" || formData.lastName === ""
     || formData.email === "" || formData.phone === "";
 
+  const emailCorrect = (formData.email.match(/^\S+@\S+\.\S+$/));
+
   function handleFormSubmit(e) {
     e.preventDefault();
-    if (requiredEmpty) {
+    if (requiredEmpty || !emailCorrect) {
       return;
     }
     setStatus("looking");
@@ -46,7 +48,7 @@ function App() {
         <Form onSubmit={handleFormSubmit}
           onInputChange={handleInputChange}
           formData={formData}
-          shouldSubmit={!requiredEmpty}
+          shouldSubmit={{ requiredEmpty, emailCorrect }}
         />
       }
 

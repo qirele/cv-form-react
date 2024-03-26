@@ -4,9 +4,11 @@ import styles from '../styles/Form.module.css';
 
 export default function Form({ onSubmit, onInputChange, formData, shouldSubmit }) {
 
+  const { requiredEmpty, emailCorrect } = shouldSubmit;
+
   return (
     <div className={styles.formWrapper}>
-      <form onSubmit={onSubmit} className="container">
+      <form onSubmit={onSubmit} className="container" noValidate={true}>
         <Section title="General Information">
           <InputContainer
             type="text"
@@ -103,9 +105,12 @@ export default function Form({ onSubmit, onInputChange, formData, shouldSubmit }
           />
         </Section>
         <div>
-          <button className={"btn " + (!shouldSubmit ? styles.error : "")} type="submit">Submit</button>
-          {!shouldSubmit &&
+          <button className={"btn " + (requiredEmpty || !emailCorrect ? styles.error : "")} type="submit">Submit</button>
+          {requiredEmpty &&
             <p className={styles.error}>Sorry, you gotta provide required fields</p>
+          }
+          {!emailCorrect &&
+            <p className={styles.error}>Sorry, first input a correct email</p>
           }
         </div>
       </form>
