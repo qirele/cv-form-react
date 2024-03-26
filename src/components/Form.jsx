@@ -107,10 +107,10 @@ export default function Form({ onSubmit, onInputChange, formData, shouldSubmit }
         <div>
           <button className={"btn " + (requiredEmpty || !emailCorrect ? styles.error : "")} type="submit">Submit</button>
           {requiredEmpty &&
-            <p className={styles.error}>Sorry, you gotta provide required fields</p>
+            <p className={styles.error}>To submit, provide required fields</p>
           }
           {!emailCorrect &&
-            <p className={styles.error}>Sorry, first input a correct email</p>
+            <p className={styles.error}>Provided email is not correct</p>
           }
         </div>
       </form>

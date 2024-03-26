@@ -1,4 +1,32 @@
 .dataWrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  gap: 0.5rem;
+  margin-block: 0.5rem;
+  color: hsl(0, 0%, 91%);
+}
+
+.dataWrapper p {
+  padding: 0.5rem 1rem;
+}
+
+.dataWrapper p:first-of-type {
+  background: hsl(156, 100%, 13%);
+}
+
+.dataWrapper p:last-of-type {
+  background: hsl(103, 75%, 10%);
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 1200px) {
+  .dataWrapper {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+
+  .dataWrapper p:first-of-type {
+    border-right: none;
+  }
 }

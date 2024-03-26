@@ -12,7 +12,7 @@ export default function InputContainer({
         id={id}
         value={formData[id]}
         onChange={onChange}
-        className={isEmpty ? styles.error : ""}
+        className={isEmpty || isEmailAndWrong ? styles.error : ""}
       />
       {isEmpty &&
         <p className={styles.error}>I think you haven't typed anything yet</p>
